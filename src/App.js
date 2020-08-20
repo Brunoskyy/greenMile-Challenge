@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
 
-import DevForm from './components/DevForm'
+import Routes from './routes'
 
 function App() {
   return (
     <div className="App">
-      <main>
-        <DevForm />
-      </main>
+      <Routes />
     </div>
   );
 }
