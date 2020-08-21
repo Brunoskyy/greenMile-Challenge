@@ -24,7 +24,7 @@ function Profile() {
               // always executed
             });
 
-        mapsApi.get('São Paulo')
+        mapsApi.get('Vancouver')
             .then(function (response) {
                 // handle success
                 console.log(response.data.features[0].geometry.coordinates);
