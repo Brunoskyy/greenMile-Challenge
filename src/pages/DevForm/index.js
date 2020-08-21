@@ -10,20 +10,19 @@ function DevForm() {
     const history = useHistory()
 
     
-    function handleQuery(e) {
+    async function handleQuery(e) {
         e.preventDefault()
         
-        api.get(`/${github_username}`)
-            .then(response => {
+        try {
+            const response = await api.get(`/${github_username}`)
                 console.log(response.data)
                 localStorage.setItem('gitUser', github_username)
                 history.push('/profile')
-            })
-            .catch(error => {
+            } catch (error) {
                 console.log(error.message)
                 const alerta = document.querySelector('.error')
                 alerta.innerText = 'Usuário não foi encontrado.'
-            })
+            }
     }
 
     return (

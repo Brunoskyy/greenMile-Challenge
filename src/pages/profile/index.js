@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import api from '../../services/api'
+import React, { useState, useEffect } from 'react';
+import api, { mapsApi } from '../../services/api'
 
 import './styles.css'
+
+import Map from '../../components/Map'
 
 function Profile() {
     const [user, setUser] = useState({})
@@ -9,13 +11,33 @@ function Profile() {
 
     useEffect(() => {
         api.get(`/${githubUsername}`)
-            .then(response => {
-                setUser(response.data)
+            .then(function (response) {
+              // handle success
+              console.log(response);
+              setUser(response.data)
             })
-            .catch(error => {
-                console.log(error)
+            .catch(function (error) {
+              // handle error
+              console.log(error);
             })
-    })
+            .then(function () {
+              // always executed
+            });
+
+        mapsApi.get('São Paulo')
+            .then(function (response) {
+                // handle success
+                console.log(response.data.features[0].geometry.coordinates);
+                })
+                .catch(function (error) {
+                // handle error
+                console.log(error);
+                })
+                .then(function () {
+                // always executed
+                });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <div className="profile-container">
@@ -27,8 +49,8 @@ function Profile() {
                 <a className="info url" href={user.html_url}>{user.html_url}</a>
             </aside>
             <main>
-
-            </main> 
+                <Map />
+            </main>
         </div>
     )
 }
