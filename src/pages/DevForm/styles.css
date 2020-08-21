@@ -1,4 +1,5 @@
 .form-wrapper {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,7 +10,7 @@
 .App-title {
     font-size: 30px;
     text-align: center;
-    margin: 0px 0 50px;
+    margin: 0px 0 60px;
     color: #2E2D4D;
 }
   
@@ -19,7 +20,6 @@
 
 form {
     width: 400px;
-    height: 200px;
     padding: 20px;
     border-radius: 5px;
 }
@@ -63,4 +63,23 @@ form {
 
 .form-wrapper button:hover {
     filter: brightness(80%);
+}
+
+.error {
+    color: rgb(235, 8, 0);
+    font-size: 14px;
+    font-weight: 500;
+    margin: 3px 0 0 5px;
+}
+
+@media (max-width: 425px) {
+    form {
+        width: 95%;
+    }
+}
+
+@media (max-width: 320px) {
+    form {
+        width: 95%;
+    }
 }
