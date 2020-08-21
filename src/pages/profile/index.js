@@ -19,12 +19,16 @@ function Profile() {
 
     return (
         <div className="profile-container">
-            <header>
+            <aside className="profile-info">
                 <img src={user.avatar_url} alt="avatar"/>
-                <p className="login">{user.login}</p>
-                <p className="bio">{user.bio}</p>
-                <p className="url">{user.html_url}</p>
-            </header>
+                <p className="info name">{user.name}</p>
+                <p className="info login">{user.login}</p>
+                <p className="info bio">{user.bio}</p>
+                <a className="info url" href={user.html_url}>{user.html_url}</a>
+            </aside>
+            <main>
+
+            </main> 
         </div>
     )
 }
