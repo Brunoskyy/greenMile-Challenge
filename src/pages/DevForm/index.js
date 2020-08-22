@@ -37,7 +37,7 @@ function DevForm() {
                     required
                     value={github_username}
                     onChange={e => setGithubUsername(e.target.value)}
-                    placeholder="Digite aqui o Perfil a ser consultado"
+                    placeholder="Digite aqui o Usuário"
                 />
                 <p className="error"></p>
                 </div>

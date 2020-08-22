@@ -116,3 +116,82 @@ main {
 .star-svg {
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .repositories {
+        width: 100%;
+    }
+
+    .repositorie-info {
+        width: 85%;
+    }
+}
+
+@media (max-width: 426px) {
+    .repositories .title {
+        margin: 0 auto;
+    }
+
+    .repositories-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .repositorie-info {
+        padding: 35px 35px;
+    }
+    
+    .profile-info {
+        flex-direction: column;
+    }
+    
+    .profile-wrapper {
+        flex-direction: column;
+    }
+
+    .profile-wrapper .info {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .profile-wrapper img {
+        height: 125px;
+    }
+
+    .profile-info .btn-logoff {
+        margin-top: 30px;
+        font-weight: 400;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 375px) {
+    .profile-info {
+        padding: 27px 7px;
+    }
+
+    .profile-wrapper .info {
+        margin-left: 16px;
+    }
+
+    .profile-wrapper .bio {
+        font-size: 16px;
+    }
+
+    .profile-wrapper .url {
+        font-size: 15px
+    }
+
+    .repositorie-info {
+        padding: 47px 14px;
+    }
+    
+    .repositories-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 375px) {
+    .profile-info {
+
+    }
+}
