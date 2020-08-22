@@ -2,13 +2,12 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
-import { AiFillStar } from 'react-icons/ai'
 
 import api, { mapsApi } from '../../services/api'
 import './styles.css'
 
 import Map from '../../components/Map'
-// import Repositories from '../../components/Repositories'
+import Repositories from '../../components/Repositories'
 
 function Profile() {
     const [user, setUser] = useState({})
@@ -55,16 +54,6 @@ function Profile() {
             })
     }
 
-    function handleLike(e) {
-        console.log(e.target);
-        const starSvg = document.querySelector('.star-svg') 
-        if(e.target == starSvg) {
-            e.target.style.fill == "yellow" ? e.target.style.fill = "#888" : e.target.style.fill = "yellow" 
-        } else {
-            e.target.style.fill == "yellow" ? e.target.style.fill = "#888" : e.target.style.fill = "yellow" 
-        }
-    }
-
     function handleLogoff () {
         localStorage.removeItem('gitUser')
         history.push('/')
@@ -92,13 +81,7 @@ function Profile() {
                     <p className="title">Repositórios</p>
                     <div className="repositories-wrapper">
                     {repositories.map(repositorie => (
-                        <div className="repositorie-info" key={repositorie.id}>
-                            <a  className="repositorie-name"
-                                href={repositorie.svn_url} 
-                                target="_blank" >{repositorie.owner.login} / {repositorie.name}
-                            </a>
-                            <AiFillStar className="star-svg" style={{ stroke: "#888", fill: "#888"}} onClick={handleLike}/>
-                        </div>
+                        <Repositories repositories={repositorie}/>
                     ))}
                     </div>
                 </div>
