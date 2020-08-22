@@ -76,21 +76,18 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
 }
 
 .repositories-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     justify-content: space-around;
     justify-items: center;
 }
 
 .repositories .title {
-    align-self: flex-start;
-    display: block;
     font-size: 20px;
-    margin-left: 20px;
+    /* margin-left: 0 auto; */
     color: #333;
 }
 
@@ -122,6 +119,10 @@ main {
         width: 100%;
     }
 
+    .repositories-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     .repositorie-info {
         width: 85%;
     }
@@ -139,11 +140,11 @@ main {
     .repositorie-info {
         padding: 35px 35px;
     }
-    
+
     .profile-info {
         flex-direction: column;
     }
-    
+
     .profile-wrapper {
         flex-direction: column;
     }
@@ -184,14 +185,8 @@ main {
     .repositorie-info {
         padding: 47px 14px;
     }
-    
+
     .repositories-wrapper {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 375px) {
-    .profile-info {
-
     }
 }
