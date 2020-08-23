@@ -1,3 +1,10 @@
+.loading-spinner {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .profile-container {
     width: 100%;
 }
@@ -59,6 +66,11 @@
     color: #EEE;
     font-weight: 500;
     font-size: 15px;
+    transition: filter 500ms;
+}
+
+.profile-info .btn-logoff:hover {
+  filter: brightness(90%);
 }
 
 main {
@@ -101,7 +113,7 @@ main {
     margin-top: 40px;
     padding: 20px 20px;
     border-top: 1px solid #CCC;
-    background-color: #fdfdfd;
+    background-color: #F9F9F9;
     display: flex;
     justify-content: space-between;
 }

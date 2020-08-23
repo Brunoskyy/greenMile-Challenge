@@ -31,14 +31,18 @@ function DevForm() {
         <p className="App-title"><span>green</span>mile Challenge</p>
         <div className="input-block">
           <label htmlFor="github_username">Usuário do Github</label>
-          <input name="github_username" id="github_username" required value={github_username} onChange={e=>
-          setGithubUsername(e.target.value)}
-          placeholder="Digite aqui o Usuário"
+          <input
+            data-testid="form-field"
+            name="github_username"
+            id="github_username"
+            required value={github_username}
+            onChange={e => setGithubUsername(e.target.value)}
+            placeholder="Digite aqui o Usuário"
           />
           <p className="error"></p>
         </div>
 
-        <button type="submit">Consultar Perfil</button>
+        <button data-testid="form-btn" type="submit">Consultar Perfil</button>
       </form>
     </div>
     )

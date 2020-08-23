@@ -2,6 +2,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
+import ReactLoading from 'react-loading';
 
 import api, { mapsApi } from '../../services/api'
 import './styles.css'
@@ -13,6 +14,7 @@ function Profile() {
   const [user, setUser] = useState({})
   const [coordinates, setCoordinates] = useState([])
   const [repositories, setRepositories] = useState([])
+  const [loading, setLoading] = useState(false)
   const history = useHistory()
 
   const githubUsername = localStorage.getItem('gitUser')
@@ -28,7 +30,7 @@ function Profile() {
       }).then(() => {
         getRepositories(githubUsername)
       })
-
+      setLoading(true)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -59,35 +61,44 @@ function Profile() {
     history.push('/')
   }
 
-  return (
-    <div className="profile-container">
-      <header className="profile-info">
-        <div className="profile-wrapper">
-          <img src={user.avatar_url} alt="avatar" />
-          <div className="info">
-            <p className="name">{user.name}</p>
-            <p className="login">{user.login}</p>
-            <p className="bio">{user.bio}</p>
-            <a className="url" href={user.html_url}>{user.html_url}</a>
+  if(loading) {
+    return (
+      <div className="profile-container">
+        <header className="profile-info">
+          <div className="profile-wrapper">
+            <img src={user.avatar_url} alt="avatar" />
+            <div className="info">
+              <p className="name">{user.name}</p>
+              <p className="login">{user.login}</p>
+              <p className="bio">{user.bio}</p>
+              <a className="url" href={user.html_url}>{user.html_url}</a>
+            </div>
           </div>
-        </div>
-        <button className="btn-logoff" onClick={handleLogoff}>Sair</button>
-      </header>
-      <main>
-        <div className="map">
-          <Map coordinate={ coordinates } />
-        </div>
-        <div className="repositories">
-          <p className="title">Repositórios</p>
-          <div className="repositories-wrapper">
-            {repositories.map(repositorie => (
-            <Repositories repositories={repositorie} />
-            ))}
+          <button className="btn-logoff" onClick={handleLogoff}>Sair</button>
+        </header>
+        <main>
+          <div className="map">
+            <Map coordinate={ coordinates } />
           </div>
-        </div>
-      </main>
-    </div>
-  )
+          <div className="repositories">
+            <p className="title">Repositórios</p>
+            <div className="repositories-wrapper">
+              {repositories.map(repositorie => (
+                <Repositories repositories={repositorie} />
+                ))}
+            </div>
+          </div>
+        </main>
+      </div>
+    )
+  } else {
+    return (
+      <div className="loading-spinner">
+        <ReactLoading type={"spin"} color={"#555"} height={100} width={100} />
+      </div>
+    )
+  }
+
 }
 
 export default Profile;
