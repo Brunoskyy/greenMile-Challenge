@@ -10,12 +10,22 @@
 }
 
 .profile-info {
+    /* width: 100%; */
     background-color: #2a2852;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    padding: 20px 40px;
+    font-size: 17px;
+}
+
+.profile-info .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    font-size: 17px;
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
 }
 
 .profile-wrapper {
@@ -170,6 +180,10 @@ main {
         height: 125px;
     }
 
+    .profile-info .container{
+      display: flex;
+      flex-direction: column;
+    }
     .profile-info .btn-logoff {
         margin-top: 30px;
         font-weight: 400;

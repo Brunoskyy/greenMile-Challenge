@@ -65,16 +65,18 @@ function Profile() {
     return (
       <div data-testid="container-profile" className="profile-container">
         <header className="profile-info">
-          <div className="profile-wrapper">
-            <img src={user.avatar_url} alt="avatar" />
-            <div className="info">
-              <p className="name">{user.name}</p>
-              <p className="login">{user.login}</p>
-              <p className="bio">{user.bio}</p>
-              <a className="url" href={user.html_url}>{user.html_url}</a>
+          <div className="container">
+            <div className="profile-wrapper">
+              <img src={user.avatar_url} alt="avatar" />
+              <div className="info">
+                <p className="name">{user.name}</p>
+                <p className="login">{user.login}</p>
+                <p className="bio">{user.bio}</p>
+                <a className="url" href={user.html_url}>{user.html_url}</a>
+              </div>
             </div>
-          </div>
           <button className="btn-logoff" onClick={handleLogoff}>Sair</button>
+          </div>
         </header>
         <main>
           <div data-testid="map-container" className="map">
