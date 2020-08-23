@@ -63,7 +63,7 @@ function Profile() {
 
   if(loading) {
     return (
-      <div className="profile-container">
+      <div data-testid="container-profile" className="profile-container">
         <header className="profile-info">
           <div className="profile-wrapper">
             <img src={user.avatar_url} alt="avatar" />
@@ -77,12 +77,12 @@ function Profile() {
           <button className="btn-logoff" onClick={handleLogoff}>Sair</button>
         </header>
         <main>
-          <div className="map">
+          <div data-testid="map-container" className="map">
             <Map coordinate={ coordinates } />
           </div>
           <div className="repositories">
             <p className="title">Repositórios</p>
-            <div className="repositories-wrapper">
+            <div data-testid="repositories-container" className="repositories-wrapper">
               {repositories.map(repositorie => (
                 <Repositories repositories={repositorie} />
                 ))}
